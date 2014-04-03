@@ -10,8 +10,17 @@ and open the template in the editor.
         <title></title>
     </head>
     <body>
+        <select>
         <?php
         // put your code here
+        
+        echo "hello everyone";
+        $i = 3;
+        while ( $i--){
+        }
+        
+        
         ?>
+        </select>
     </body>
 </html>
