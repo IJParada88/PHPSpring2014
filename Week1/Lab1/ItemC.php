@@ -10,8 +10,31 @@ and open the template in the editor.
         <title></title>
     </head>
     <body>
+        
+        <table width = 300, border = 10>
         <?php
-        // put your code here
+       
+      
+       
+       for ($i = 1; $i <= 100; $i++){
+           $today = date("Y-m-d H:i:s"); 
+             if ($i%2 == 0){
+
+            echo  '<tr style="background-color:silver;">';
+            }
+        else{            
+           echo "<tr>";
+         }
+            
+         echo "<td>$i</td>";
+         echo "<td>$today</td>"; 
+
+         echo "</tr>";        
+       }
+         
+       
+      
         ?>
+        </table>
     </body>
 </html>
