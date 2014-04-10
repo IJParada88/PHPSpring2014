@@ -10,31 +10,36 @@ and open the template in the editor.
         <title></title>
     </head>
     <body>
-        
-        <table width = 300, border = 10>
-        <?php
+    
+        <table width = 300, border = 10, align = center>
        
-      
-       
+
+       <?php
+            
        for ($i = 1; $i <= 100; $i++){
            $today = microtime(); //date("Y-m-d H:i:s"); 
+          
              if ($i%2 == 0){
-
+            
             echo  '<tr style="background-color:silver;">';
             }
-        else{            
+        else{  
+            echo "<center>";
            echo "<tr>";
          }
             
          echo "<td>$i</td>";
          echo "<td>$today</td>"; 
 
-         echo "</tr>";        
+         echo "</tr>";
+        
        }
          
-       
+     
       
         ?>
         </table>
+    
+        
     </body>
 </html>
