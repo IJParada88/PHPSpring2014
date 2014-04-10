@@ -17,7 +17,7 @@ and open the template in the editor.
       
        
        for ($i = 1; $i <= 100; $i++){
-           $today = date("Y-m-d H:i:s"); 
+           $today = microtime(); //date("Y-m-d H:i:s"); 
              if ($i%2 == 0){
 
             echo  '<tr style="background-color:silver;">';
