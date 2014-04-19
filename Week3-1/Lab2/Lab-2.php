@@ -51,9 +51,7 @@ Goals:
                     $TextBoxErr1 = "inputerror";
                 }
                 if (!empty($username)) {
-                    $errorMessages['username'] = '';
-                    
-                    
+                    $errorMessages['username'] = '';  
                 } else {
                      $TextBoxErr2 = "inputerror";
                 }
