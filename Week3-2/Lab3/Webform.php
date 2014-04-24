@@ -1,3 +1,4 @@
+<?php include 'dependency.php'; ?>
 <!DOCTYPE html>
 <!--
 To change this license header, choose License Headers in Project Properties.
@@ -14,20 +15,27 @@ and open the template in the editor.
         <?php
         // put your code here
         
-            include('lib/Signup.php');
-            include('lib/validator.php');
-        
             $signup = new Signup();
+            $errors = array();
             
             if ( $signup->isPostRequest()  ) {
-                 
+                
                 if ( $signup->entryIsValid() ) {
-                echo '<div class="success">All fields are good</div>';}
-                else{
-            
-            
-            print_r($signup->getError());
+                    
+                    echo '<div class="success">All fields are good</div>';
+                
+                }                
+            else{
+                    $errors = $signup->getError();
                 }
+            }
+            
+            if ( count($errors) ) {
+                echo '<ul class="error">';
+                foreach ($errors as $value) {
+                    echo '<li>',$value,'</li>';
+                }
+                echo '</ul>';
             }
             
         ?>
@@ -38,19 +46,19 @@ and open the template in the editor.
 		<legend>Sign-up Form:</legend>
                 <label for="email">E-mail:</label> 
                 <input id="email" type="text" name="email" value="<?php echo $signup->getEmail(); ?>" /> <br />
-                
+                <?php echo Util::getErrorMessageHTML('email', $errors); ?>
                 
                 <label for="username">Username:</label>
                 <input id="username" type="text" name="username" value="<?php echo $signup->getUsername(); ?>" /> <br /> 
-                
+                <?php echo Util::getErrorMessageHTML('username', $errors); ?>
                 
                 <label for="password">Password:</label>
                 <input id="password" type="password" name="password" /> <br />           
-            
+                <?php echo Util::getErrorMessageHTML('password', $errors); ?>
                 
                 <label for="confirmpassword">Confirm Password:</label>
                 <input id="confirmpassword" type="password" name="confirmpassword" /> <br />           
-                
+                <?php echo Util::getErrorMessageHTML('password', $errors); ?>
 
                 <input type="submit" value="Submit" />
             </fieldset>

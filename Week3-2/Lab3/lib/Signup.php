@@ -16,12 +16,12 @@ class Signup {
     
     
     
-    private $email;
-    private $username;
-    private $password;
-    private $confirmpassword;
+    public $email;
+    public $username;
+    public $password;
+    public $confirmpassword;
     
-    private $errors = array();
+    protected $errors = array();
     
     function __construct() {
         
