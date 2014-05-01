@@ -18,8 +18,8 @@ class Signup {
     
     public $email;
     public $username;
-    //public $password;
-   // public $confirmpassword;
+    public $password;
+    public $confirmpassword;
     
     protected $errors = array();
     
@@ -164,7 +164,22 @@ class Signup {
         
     }
     
-   
+    public function passwordEntryIsValid() {
+        
+        $password = $this->getPassword();
+        
+        if (empty ($password)){
+            $this->errors["password"] = "Password is empty.";
+        } else if ($this->getConfirmpassword() !== $this->getPassword()){
+             $this->errors ["password"] = "Comfirm password does not match.";
+        }
+        else if (!Validator::passwordIsValid($this->getPassword())){
+        
+         $this->errors ["password"] = "password is not valid. Please make sure its greater then SIX characters.";
+            
+        }
+        
+    }
     
     
      /**
