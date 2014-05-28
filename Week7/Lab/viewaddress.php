@@ -25,7 +25,7 @@ and open the template in the editor.
         
         
         <h1> View Address Book</h1>
-         
+    <td><a href= "createaddress.php" > Add New Contact </a> </td>
         <?php
         echo '<table border="1">'; 
             echo '<tr><th>Index</th><th>Address</th>';

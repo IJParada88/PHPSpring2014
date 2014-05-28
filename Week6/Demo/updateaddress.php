@@ -21,6 +21,9 @@ and open the template in the editor.
          
          $addressResult = $address->read($id);
           print_r($addressResult);
+          
+          
+          
         ?>
     </body>
 </html>

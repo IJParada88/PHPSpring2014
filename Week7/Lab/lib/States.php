@@ -12,10 +12,6 @@
  * @author 000806689
  */
 class States {
-     public function getState2() {
-        return $this->state;
-    }
-    
     public static function getState(){
     return array('AL'=>"Alabama",  
 			'AK'=>"Alaska",  

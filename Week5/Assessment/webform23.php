@@ -9,53 +9,82 @@ and open the template in the editor.
     <head>
         <meta charset="UTF-8">
         <title></title>
+        <link href="lib/style.css" media="all" rel="stylesheet" type="text/css" />
     </head>
     <body>
         <?php
-                $main = new MainForm();
-                
-                $state_list = States::getState();
-                
-                
         // put your code here
-        
-        
+        // Set my variables   
+            $signup = new MainForm();
+            $state_list = States::getState();
+            $errors = array();  
+            
+            // Set var calling function in signup class
+            if ( $signup->isPostRequest()  ) {  
+                // if the var goes to the function in class sign up
+                // if returns true
+                if ( $signup->entryIsValid() ) {
+                    //This message will display
+                    //echo '<div class="success">All fields are good';
+                    // echo the class to set the look
+                    echo '<div class="success">';
+                    // display username
+                    echo $signup->getUsername();
+                    echo '<br \>';
+                    // display state
+                    echo $state_list[States::getState()];
+                    echo '<br \>';
+                    echo $signup->getComment();
+                    // display user comments
+                    echo '<br \>';
+                    // display current date
+                    echo $date = date('F j Y h:i:s A');
+                    // close my div tag
+                    echo '</div>';
+                } else {
+                    // Else it will call the get errors function in the class
+                    $errors = $signup->getErrors();
+                }
+            }
+            
         ?>
         
-       
-        
-        
-        <h2> My Form Demo </h2>
-        
-       <form name="mainform" action="#" method="post">            
-          
-           
-           Full Name: <input id="FullName" class="<?php //echo $TextBoxErr1; ?>" type="text" name="FullName" value="<?php echo $main->getName(); ?>" /> <br /> 
-            
-           Comments: <textarea id="Comments" class="" name="Comments"  ><?php echo $main->getComments(); ?></textarea> <br />  <br />
-            
-           List: <select id="list" name="List"> 
-               <?php 
+        <form name="mainform" action="#" method="post"> 
+           <fieldset>
+		<legend>Assessment Form:</legend>
+
+                <label for="username">Username:</label>
+                <input id="username" type="text" name="username" value='<?php echo $signup->getUsername(); ?>'/> <br /> 
+                <?php echo Validator::getErrorMessageHTML('username', $errors); ?>
+                
+                <label for="state">State:</label>
+                <select id="state" type="text" name="state">
+                
+                    <?php 
                
-                foreach ($state_list as $value) {
-                   if ($main->getList() == $value){
-                     echo "<option value=\"$value\" selected = \"selected\">$value</option>\n";
+                foreach ($state_list as $key => $value ) {
+                    
+                    
+                   if ($key === States::getState() ){
+                     echo "<option value=\"$key\" selected = \"selected\">$value</option>\n";
                    }
-                         else {
-                   
-                         echo "<option value=\"$value\">$value</option>\n"; 
+                   else{
+                       echo "<option value=\"$key\">$value</option>\n";
+                   }
                          
-                         }
                 }
                ?>
-                
-                 </select><br /><br />
-       
-            <input type="submit" value="Submit" />  
-           
-           
-       </form>
+                    
+                </select> <br /> 
+                <?php echo Validator::getErrorMessageHTML('state', $errors); ?>
+
+                <label for="comments">Comments:</label>
+                <textarea id="comments" type="text" name="comments" ><?php echo $signup->getComment(); ?></textarea> <br />
+                <?php echo Validator::getErrorMessageHTML('comment', $errors); ?>
+
+                <input type="submit" value="Submit" />
+            </fieldset>
+        </form>
         
     </body>
-    
 </html>
