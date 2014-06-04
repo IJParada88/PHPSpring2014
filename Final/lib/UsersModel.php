@@ -25,11 +25,7 @@ class UsersModel {
     }
     
     /**
-    * A public method to map all the variables to a value
-    *
-    * @param Array $paramArr
-    *
-    * @return Void
+   
     */ 
     public function map($paramArr) {
         

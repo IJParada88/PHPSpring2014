@@ -63,7 +63,7 @@ class Users extends DB {
             $dbs2->bindParam("Title", $UsersModel->title, PDO::PARAM_STR);
             $dbs2->bindParam("Theme 1", $UsersModel->theme, PDO::PARAM_STR);
             $dbs2->bindParam("Address", $UsersModel->address, PDO::PARAM_STR);
-            $dbs2->bindParam("555-555-5555", $UsersModel->phone, PDO::PARAM_STR);
+            // theres something wrong this line  of code, coudltn figure it out  $dbs2->bindParam("555-555-5555", $UsersModel->phone, PDO::PARAM_STR);
             $dbs2->bindParam(':email', $UsersModel->email, PDO::PARAM_STR);
             $dbs2->bindParam("About", $UsersModel->content, PDO::PARAM_STR);
             $dbs2->bindParam(':active', $UsersModel->active, PDO::PARAM_INT);
@@ -77,6 +77,16 @@ class Users extends DB {
         
         return $result;
     }
+    
+    public function read($id = 0) {
+       if ($id !== 0) {
+           return $this->readByID($id);
+       } else {
+           return $this->readAll();
+       }
+        
+    }
+    
     
     public function save( SignupModel $dataModel) {
         $result = false;
@@ -103,28 +113,7 @@ class Users extends DB {
         return $result;
     }
     
-    /**
-    * A public method to return an entry in the addressbook
-    * database.
-    *
-    * @param int $id 
-    *
-    * @return array
-    */
-    public function read($id = 0) {
-       if ($id !== 0) {
-           return $this->readByID($id);
-       } else {
-           return $this->readAll();
-       }
-        
-    }
     
-    /**
-    * A private method to return a record from the database by the id
-    *
-    * @return array
-    */
      private function readByID($id){
            $results = array();
            

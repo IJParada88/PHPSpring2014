@@ -36,14 +36,7 @@ class Signup extends DB {
          return $isTaken;
     }
     
-    /**
-    * A public method to create a new entry into the users
-    * database.
-    *
-    * @param object $UsersModel must be an instanceof UsersModel
-    *
-    * @return boolean
-    */  
+    
     public function create($UsersModel) {
         $result = false;
         

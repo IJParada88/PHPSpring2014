@@ -43,11 +43,11 @@ and open the template in the editor.
                  </select>
             <br />
             
-            <label> Address:</label> <input type="text" name="address" value="123 test st, providence RI, 02864" /><br /> 
-            <label> Phone:</label> <input type="text" name="phone" value="555-666-7777" /><br /> 
+            <label> Address:</label> <input type="text" name="address" value="123 demo st, providence RI, 02864" /><br /> 
+            <label> Phone:</label> <input type="text" name="phone" value="555-555-5555" /><br /> 
             <label> Email:</label> <input type="text" name="email" value="test@test.com" /><br /> 
             <label> About:</label><br />
-            <textarea name="about" cols="50" rows="10">this is a test to make sure everything works
+            <textarea name="about" cols="50" rows="10">just a test
 </textarea><br /> 
             
             <input type="submit" value="Submit" />
