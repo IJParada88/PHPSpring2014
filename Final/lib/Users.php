@@ -63,7 +63,7 @@ class Users extends DB {
             $dbs2->bindParam("Title", $UsersModel->title, PDO::PARAM_STR);
             $dbs2->bindParam("Theme 1", $UsersModel->theme, PDO::PARAM_STR);
             $dbs2->bindParam("Address", $UsersModel->address, PDO::PARAM_STR);
-            $dbs2->bindParam("555-867-5309", $UsersModel->phone, PDO::PARAM_STR);
+            $dbs2->bindParam("555-555-5555", $UsersModel->phone, PDO::PARAM_STR);
             $dbs2->bindParam(':email', $UsersModel->email, PDO::PARAM_STR);
             $dbs2->bindParam("About", $UsersModel->content, PDO::PARAM_STR);
             $dbs2->bindParam(':active', $UsersModel->active, PDO::PARAM_INT);
